@@ -1,0 +1,7 @@
+dbt_duckdb_project:  # ← あなたの dbt プロジェクト名に合わせて変更
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../duckdb.db         # DuckDBのファイルパス（相対 or 絶対パスOK）
+      threads: 1

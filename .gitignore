@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# dbt
+dbt_packages/
+target/
+dbt_modules/
+logs/
+manifest.json
+run_results.json
+profiles.yml  # 環境依存の認証情報なので除外（後述）
+
+# macOS
+.DS_Store
+
+# Lightdash
+.lightdash/

@@ -1,0 +1,152 @@
+version: 2
+
+sources:
+  - name: main
+    tables:
+      - name: medical_diagnosis_form
+        columns:
+          - name: user_id
+            data_type: UUID
+          - name: referrer
+            data_type: VARCHAR
+          - name: most_severe_symptom
+            data_type: >-
+              STRUCT(armpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), legpain STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), malaise STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), vertigo STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              diarrhea STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), hayfever STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), insomnia STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), kneepain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              meadache STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), tinnitus STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), b1ackpain STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), dizziness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              stiffneck STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stiffness STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), arrhythmia STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), eyefatigue STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              hotFlashes STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), lkowerback STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), numbnessin STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), buttockpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              numbnessarm STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), shortnessof STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stomachpain STRUCT(most BOOLEAN, painful
+              BOOLEAN, concerning BOOLEAN), swollenlegs STRUCT(most BOOLEAN, painful BOOLEAN, concerning
+              BOOLEAN), constipation STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), irritability
+              STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), palpitations STRUCT(most BOOLEAN,
+              painful BOOLEAN, concerning BOOLEAN), abdominalpain STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), backstiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              menstrualpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), sensitivityto STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), nasalcongestion STRUCT(most BOOLEAN, painful
+              BOOLEAN, concerning BOOLEAN), f1requenturination STRUCT(most BOOLEAN, painful BOOLEAN, concerning
+              BOOLEAN), menstrualirregularity STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN))
+          - name: additionalinfo
+            data_type: >-
+              STRUCT(smoking VARCHAR, appetite VARCHAR, drinking VARCHAR, systolicBP VARCHAR, diastolicBP
+              VARCHAR, averageSleep VARCHAR, pregnancyWeek VARCHAR, smokingAmount VARCHAR, pregnancyStatus
+              VARCHAR)
+          - name: questionnaireid
+            data_type: UUID
+          - name: activitiesdata
+            data_type: >-
+              STRUCT(nursing BOOLEAN, parenting BOOLEAN, caregiving BOOLEAN, doingSports BOOLEAN, sittingWork
+              BOOLEAN, standingWork BOOLEAN, frequentDriving BOOLEAN, frequentComputerUse BOOLEAN, liftingHeavyObjects
+              BOOLEAN, readingBooksNewspapers BOOLEAN)
+          - name: pastmedicalhistory
+            data_type: >-
+              STRUCT(lastName VARCHAR, bodyMarks VARCHAR, firstName VARCHAR, dateOfBirth VARCHAR, medicalIssues
+              VARCHAR, patientNumber VARCHAR, hasOtherConcerns VARCHAR, hasPastCondition VARCHAR, otherConcernsDetails
+              VARCHAR, pastConditionDetails VARCHAR)
+          - name: diagnosesdata
+            data_type: JSON
+          - name: symptomsdata
+            data_type: >-
+              STRUCT(armpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), legpain STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), malaise STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), vertigo STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              diarrhea STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), hayfever STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), insomnia STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), kneepain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              meadache STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), tinnitus STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), b1ackpain STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), dizziness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              stiffneck STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stiffness STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), arrhythmia STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), eyefatigue STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              hotFlashes STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), lkowerback STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), numbnessin STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), buttockpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              numbnessarm STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), shortnessof STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stomachpain STRUCT(most BOOLEAN, painful
+              BOOLEAN, concerning BOOLEAN), swollenlegs STRUCT(most BOOLEAN, painful BOOLEAN, concerning
+              BOOLEAN), constipation STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), irritability
+              STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), palpitations STRUCT(most BOOLEAN,
+              painful BOOLEAN, concerning BOOLEAN), abdominalpain STRUCT(most BOOLEAN, painful BOOLEAN,
+              concerning BOOLEAN), backstiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
+              menstrualpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), sensitivityto STRUCT(most
+              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), nasalcongestion STRUCT(most BOOLEAN, painful
+              BOOLEAN, concerning BOOLEAN), f1requenturination STRUCT(most BOOLEAN, painful BOOLEAN, concerning
+              BOOLEAN), menstrualirregularity STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN))
+          - name: marks
+            data_type: JSON
+          - name: marked_image_name
+            data_type: VARCHAR
+          - name: created_at
+            data_type: VARCHAR
+          - name: updated_at
+            data_type: VARCHAR
+          - name: marked_image_path
+            data_type: JSON
+          - name: chakura_marks
+            data_type: STRUCT(x DOUBLE, y DOUBLE)[]
+          - name: mainComplaint
+            data_type: VARCHAR
+          - name: mentalComplaints
+            data_type: VARCHAR
+          - name: treatment_memo
+            data_type: VARCHAR
+          - name: repliconVaccine
+            data_type: VARCHAR
+          - name: fortunemessage_memo
+            data_type: VARCHAR
+          - name: chakraerror_memo
+            data_type: VARCHAR
+          - name: rooterror_memo
+            data_type: VARCHAR
+          - name: patientNumber
+            data_type: BIGINT
+      - name: users
+        columns:
+          - name: user_id
+            data_type: UUID
+          - name: user_name
+            data_type: VARCHAR
+          - name: kana
+            data_type: VARCHAR
+          - name: gender
+            data_type: VARCHAR
+          - name: age
+            data_type: BIGINT
+          - name: birthday
+            data_type: VARCHAR
+          - name: postal_code
+            data_type: VARCHAR
+          - name: address
+            data_type: VARCHAR
+          - name: phone_number
+            data_type: VARCHAR
+          - name: email
+            data_type: VARCHAR
+          - name: first_treatment_date
+            data_type: DATE
+          - name: acquisition_channel
+            data_type: VARCHAR
+          - name: occupation
+            data_type: VARCHAR
+          - name: family
+            data_type: VARCHAR
+          - name: memo
+            data_type: VARCHAR
+          - name: created_at
+            data_type: VARCHAR
+          - name: updated_at
+            data_type: VARCHAR
+          - name: visibletochildadmin
+            data_type: BOOLEAN

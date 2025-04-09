@@ -1,0 +1,38 @@
+version: 2
+models:
+  - name: mart_user_diagnosis_summary
+    columns:
+      - name: user_id
+        data_type: UUID
+      - name: user_name
+        data_type: VARCHAR
+      - name: gender
+        data_type: VARCHAR
+      - name: age
+        data_type: BIGINT
+      - name: first_treatment_date
+        data_type: DATE
+      - name: acquisition_channel
+        data_type: VARCHAR
+      - name: total_diagnoses
+        data_type: BIGINT
+      - name: first_diagnosis_date
+        data_type: TIMESTAMP
+      - name: latest_diagnosis_date
+        data_type: TIMESTAMP
+      - name: armpain_count
+        data_type: HUGEINT
+      - name: legpain_count
+        data_type: HUGEINT
+      - name: malaise_count
+        data_type: HUGEINT
+      - name: sitting_work_count
+        data_type: HUGEINT
+      - name: computer_use_count
+        data_type: HUGEINT
+      - name: avg_systolic_bp
+        data_type: DOUBLE
+      - name: avg_diastolic_bp
+        data_type: DOUBLE
+      - name: avg_sleep_hours
+        data_type: DOUBLE
