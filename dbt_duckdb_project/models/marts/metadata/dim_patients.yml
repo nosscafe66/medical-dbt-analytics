@@ -1,0 +1,28 @@
+version: 2
+models:
+  - name: dim_patients
+    columns:
+      - name: user_id
+        data_type: STRING
+      - name: user_name
+        data_type: STRING
+      - name: gender
+        data_type: STRING
+      - name: age
+        data_type: INT64
+      - name: occupation
+        data_type: STRING
+      - name: acquisition_channel
+        data_type: STRING
+      - name: total_visits
+        data_type: INT64
+      - name: first_visit_at
+        data_type: TIMESTAMP
+      - name: last_visit_at
+        data_type: TIMESTAMP
+      - name: avg_pain_score
+        data_type: FLOAT64
+      - name: clinical_outcome
+        data_type: STRING
+      - name: retention_period_days
+        data_type: INT64

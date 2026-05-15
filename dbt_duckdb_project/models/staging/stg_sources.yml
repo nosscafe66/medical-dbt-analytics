@@ -1,152 +1,638 @@
 version: 2
-
 sources:
-  - name: main
+  - name: source
+    database: mylifedesign
     tables:
       - name: medical_diagnosis_form
         columns:
-          - name: user_id
-            data_type: UUID
-          - name: referrer
-            data_type: VARCHAR
-          - name: most_severe_symptom
+          - name: json_agg
             data_type: >-
-              STRUCT(armpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), legpain STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), malaise STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), vertigo STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              diarrhea STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), hayfever STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), insomnia STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), kneepain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              meadache STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), tinnitus STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), b1ackpain STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), dizziness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              stiffneck STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stiffness STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), arrhythmia STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), eyefatigue STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              hotFlashes STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), lkowerback STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), numbnessin STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), buttockpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              numbnessarm STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), shortnessof STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stomachpain STRUCT(most BOOLEAN, painful
-              BOOLEAN, concerning BOOLEAN), swollenlegs STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-              BOOLEAN), constipation STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), irritability
-              STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), palpitations STRUCT(most BOOLEAN,
-              painful BOOLEAN, concerning BOOLEAN), abdominalpain STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), backstiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              menstrualpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), sensitivityto STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), nasalcongestion STRUCT(most BOOLEAN, painful
-              BOOLEAN, concerning BOOLEAN), f1requenturination STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-              BOOLEAN), menstrualirregularity STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN))
-          - name: additionalinfo
-            data_type: >-
-              STRUCT(smoking VARCHAR, appetite VARCHAR, drinking VARCHAR, systolicBP VARCHAR, diastolicBP
-              VARCHAR, averageSleep VARCHAR, pregnancyWeek VARCHAR, smokingAmount VARCHAR, pregnancyStatus
-              VARCHAR)
-          - name: questionnaireid
-            data_type: UUID
-          - name: activitiesdata
-            data_type: >-
-              STRUCT(nursing BOOLEAN, parenting BOOLEAN, caregiving BOOLEAN, doingSports BOOLEAN, sittingWork
-              BOOLEAN, standingWork BOOLEAN, frequentDriving BOOLEAN, frequentComputerUse BOOLEAN, liftingHeavyObjects
-              BOOLEAN, readingBooksNewspapers BOOLEAN)
-          - name: pastmedicalhistory
-            data_type: >-
-              STRUCT(lastName VARCHAR, bodyMarks VARCHAR, firstName VARCHAR, dateOfBirth VARCHAR, medicalIssues
-              VARCHAR, patientNumber VARCHAR, hasOtherConcerns VARCHAR, hasPastCondition VARCHAR, otherConcernsDetails
-              VARCHAR, pastConditionDetails VARCHAR)
-          - name: diagnosesdata
-            data_type: JSON
-          - name: symptomsdata
-            data_type: >-
-              STRUCT(armpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), legpain STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), malaise STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), vertigo STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              diarrhea STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), hayfever STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), insomnia STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), kneepain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              meadache STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), tinnitus STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), b1ackpain STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), dizziness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              stiffneck STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stiffness STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), arrhythmia STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), eyefatigue STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              hotFlashes STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), lkowerback STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), numbnessin STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), buttockpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              numbnessarm STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), shortnessof STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stomachpain STRUCT(most BOOLEAN, painful
-              BOOLEAN, concerning BOOLEAN), swollenlegs STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-              BOOLEAN), constipation STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), irritability
-              STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), palpitations STRUCT(most BOOLEAN,
-              painful BOOLEAN, concerning BOOLEAN), abdominalpain STRUCT(most BOOLEAN, painful BOOLEAN,
-              concerning BOOLEAN), backstiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-              menstrualpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), sensitivityto STRUCT(most
-              BOOLEAN, painful BOOLEAN, concerning BOOLEAN), nasalcongestion STRUCT(most BOOLEAN, painful
-              BOOLEAN, concerning BOOLEAN), f1requenturination STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-              BOOLEAN), menstrualirregularity STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN))
-          - name: marks
-            data_type: JSON
-          - name: marked_image_name
-            data_type: VARCHAR
-          - name: created_at
-            data_type: VARCHAR
-          - name: updated_at
-            data_type: VARCHAR
-          - name: marked_image_path
-            data_type: JSON
-          - name: chakura_marks
-            data_type: STRUCT(x DOUBLE, y DOUBLE)[]
-          - name: mainComplaint
-            data_type: VARCHAR
-          - name: mentalComplaints
-            data_type: VARCHAR
-          - name: treatment_memo
-            data_type: VARCHAR
-          - name: repliconVaccine
-            data_type: VARCHAR
-          - name: fortunemessage_memo
-            data_type: VARCHAR
-          - name: chakraerror_memo
-            data_type: VARCHAR
-          - name: rooterror_memo
-            data_type: VARCHAR
-          - name: patientNumber
-            data_type: BIGINT
+              ARRAY<STRUCT<`treatment_date` DATE, `fortunemessage_memo` STRING, `repliconVaccine` BOOLEAN,
+              `treatment_memo` STRING, `mentalComplaints` STRING, `chakura_marks` ARRAY<STRUCT<`y` FLOAT64,
+              `x` FLOAT64>>, `updated_at` TIMESTAMP, `created_at` TIMESTAMP, `marked_image_name` STRING,
+              `chakraerror_memo` STRING, `symptomsdata` STRUCT<`nasalcongestion` STRUCT<`concerning` BOOLEAN,
+              `painful` BOOLEAN, `most` BOOLEAN>, `menstrualpain` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `backstiffness` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `menstrualirregularity` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `palpitations` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `irritability` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `constipation`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `swollenlegs` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `lkowerback` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `eyefatigue` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most`
+              BOOLEAN>, `stiffness` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `numbnessarm`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `buttockpain` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `b1ackpain` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `numbnessin` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most`
+              BOOLEAN>, `abdominalpain` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `diarrhea` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `stiffneck`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `sensitivityto` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `meadache` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `shortnessof` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `dizziness` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `insomnia` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `stomachpain`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `legpain` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `arrhythmia` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `tinnitus` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most`
+              BOOLEAN>, `kneepain` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `hotFlashes`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `hayfever` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `f1requenturination` STRUCT<`concerning` BOOLEAN,
+              `painful` BOOLEAN, `most` BOOLEAN>, `malaise` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `vertigo` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `armpain` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>>, `diagnosesdata`
+              ARRAY<STRUCT<`startDate` DATE, `name` STRING>>, `pastmedicalhistory` STRUCT<`otherConcernsDetails`
+              STRING, `hasPastCondition` BOOLEAN, `hasOtherConcerns` BOOLEAN, `patientNumber` STRING,
+              `dateOfBirth` STRING, `medicalIssues` STRING, `firstName` STRING, `pastConditionDetails`
+              STRING, `bodyMarks` STRING, `lastName` STRING>, `rooterror_memo` STRING, `additionalinfo`
+              STRUCT<`pregnancyStatus` STRING, `smokingAmount` INT64, `pregnancyWeek` INT64, `averageSleep`
+              FLOAT64, `systolicBP` INT64, `diastolicBP` INT64, `drinking` STRING, `appetite` STRING,
+              `smoking` STRING>, `marked_image_path` STRING, `activitiesdata` STRUCT<`readingBooksNewspapers`
+              BOOLEAN, `frequentComputerUse` BOOLEAN, `standingWork` BOOLEAN, `sittingWork` BOOLEAN, `liftingHeavyObjects`
+              BOOLEAN, `doingSports` BOOLEAN, `caregiving` BOOLEAN, `parenting` BOOLEAN, `frequentDriving`
+              BOOLEAN, `nursing` BOOLEAN>, `mainComplaint` STRING, `questionnaireid` STRING, `referrer`
+              STRING, `marks` ARRAY<STRUCT<`y` FLOAT64, `x` FLOAT64>>, `patientNumber` INT64, `most_severe_symptom`
+              STRUCT<`nasalcongestion` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `menstrualpain` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `backstiffness`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `menstrualirregularity`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `palpitations` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `irritability` STRUCT<`concerning` BOOLEAN,
+              `painful` BOOLEAN, `most` BOOLEAN>, `constipation` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `swollenlegs` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `lkowerback` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `eyefatigue` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `stiffness`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `numbnessarm` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `buttockpain` STRUCT<`concerning` BOOLEAN,
+              `painful` BOOLEAN, `most` BOOLEAN>, `b1ackpain` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `numbnessin` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `abdominalpain` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `diarrhea`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `stiffneck` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `sensitivityto` STRUCT<`concerning` BOOLEAN,
+              `painful` BOOLEAN, `most` BOOLEAN>, `meadache` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `shortnessof` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `dizziness` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `insomnia`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `stomachpain` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `legpain` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `arrhythmia` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most`
+              BOOLEAN>, `tinnitus` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `kneepain`
+              STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `hotFlashes` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `hayfever` STRUCT<`concerning` BOOLEAN, `painful`
+              BOOLEAN, `most` BOOLEAN>, `f1requenturination` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN,
+              `most` BOOLEAN>, `malaise` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>,
+              `vertigo` STRUCT<`concerning` BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>, `armpain` STRUCT<`concerning`
+              BOOLEAN, `painful` BOOLEAN, `most` BOOLEAN>>, `user_id` STRING>>
+          - name: json_agg.treatment_date
+            data_type: DATE
+          - name: json_agg.fortunemessage_memo
+            data_type: STRING
+          - name: json_agg.repliconVaccine
+            data_type: BOOLEAN
+          - name: json_agg.treatment_memo
+            data_type: STRING
+          - name: json_agg.mentalComplaints
+            data_type: STRING
+          - name: json_agg.chakura_marks.y
+            data_type: FLOAT64
+          - name: json_agg.chakura_marks.x
+            data_type: FLOAT64
+          - name: json_agg.updated_at
+            data_type: TIMESTAMP
+          - name: json_agg.created_at
+            data_type: TIMESTAMP
+          - name: json_agg.marked_image_name
+            data_type: STRING
+          - name: json_agg.chakraerror_memo
+            data_type: STRING
+          - name: json_agg.symptomsdata.nasalcongestion.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.nasalcongestion.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.nasalcongestion.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.menstrualpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.menstrualpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.menstrualpain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.backstiffness.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.backstiffness.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.backstiffness.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.menstrualirregularity.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.menstrualirregularity.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.menstrualirregularity.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.palpitations.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.palpitations.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.palpitations.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.irritability.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.irritability.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.irritability.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.constipation.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.constipation.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.constipation.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.swollenlegs.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.swollenlegs.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.swollenlegs.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.lkowerback.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.lkowerback.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.lkowerback.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.eyefatigue.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.eyefatigue.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.eyefatigue.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stiffness.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stiffness.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stiffness.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.numbnessarm.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.numbnessarm.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.numbnessarm.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.buttockpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.buttockpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.buttockpain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.b1ackpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.b1ackpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.b1ackpain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.numbnessin.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.numbnessin.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.numbnessin.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.abdominalpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.abdominalpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.abdominalpain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.diarrhea.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.diarrhea.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.diarrhea.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stiffneck.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stiffneck.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stiffneck.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.sensitivityto.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.sensitivityto.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.sensitivityto.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.meadache.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.meadache.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.meadache.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.shortnessof.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.shortnessof.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.shortnessof.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.dizziness.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.dizziness.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.dizziness.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.insomnia.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.insomnia.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.insomnia.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stomachpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stomachpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.stomachpain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.legpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.legpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.legpain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.arrhythmia.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.arrhythmia.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.arrhythmia.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.tinnitus.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.tinnitus.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.tinnitus.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.kneepain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.kneepain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.kneepain.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.hotFlashes.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.hotFlashes.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.hotFlashes.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.hayfever.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.hayfever.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.hayfever.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.f1requenturination.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.f1requenturination.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.f1requenturination.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.malaise.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.malaise.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.malaise.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.vertigo.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.vertigo.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.vertigo.most
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.armpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.armpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.symptomsdata.armpain.most
+            data_type: BOOLEAN
+          - name: json_agg.diagnosesdata.startDate
+            data_type: DATE
+          - name: json_agg.diagnosesdata.name
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.otherConcernsDetails
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.hasPastCondition
+            data_type: BOOLEAN
+          - name: json_agg.pastmedicalhistory.hasOtherConcerns
+            data_type: BOOLEAN
+          - name: json_agg.pastmedicalhistory.patientNumber
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.dateOfBirth
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.medicalIssues
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.firstName
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.pastConditionDetails
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.bodyMarks
+            data_type: STRING
+          - name: json_agg.pastmedicalhistory.lastName
+            data_type: STRING
+          - name: json_agg.rooterror_memo
+            data_type: STRING
+          - name: json_agg.additionalinfo.pregnancyStatus
+            data_type: STRING
+          - name: json_agg.additionalinfo.smokingAmount
+            data_type: INT64
+          - name: json_agg.additionalinfo.pregnancyWeek
+            data_type: INT64
+          - name: json_agg.additionalinfo.averageSleep
+            data_type: FLOAT64
+          - name: json_agg.additionalinfo.systolicBP
+            data_type: INT64
+          - name: json_agg.additionalinfo.diastolicBP
+            data_type: INT64
+          - name: json_agg.additionalinfo.drinking
+            data_type: STRING
+          - name: json_agg.additionalinfo.appetite
+            data_type: STRING
+          - name: json_agg.additionalinfo.smoking
+            data_type: STRING
+          - name: json_agg.marked_image_path
+            data_type: STRING
+          - name: json_agg.activitiesdata.readingBooksNewspapers
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.frequentComputerUse
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.standingWork
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.sittingWork
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.liftingHeavyObjects
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.doingSports
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.caregiving
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.parenting
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.frequentDriving
+            data_type: BOOLEAN
+          - name: json_agg.activitiesdata.nursing
+            data_type: BOOLEAN
+          - name: json_agg.mainComplaint
+            data_type: STRING
+          - name: json_agg.questionnaireid
+            data_type: STRING
+          - name: json_agg.referrer
+            data_type: STRING
+          - name: json_agg.marks.y
+            data_type: FLOAT64
+          - name: json_agg.marks.x
+            data_type: FLOAT64
+          - name: json_agg.patientNumber
+            data_type: INT64
+          - name: json_agg.most_severe_symptom.nasalcongestion.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.nasalcongestion.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.nasalcongestion.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.menstrualpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.menstrualpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.menstrualpain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.backstiffness.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.backstiffness.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.backstiffness.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.menstrualirregularity.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.menstrualirregularity.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.menstrualirregularity.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.palpitations.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.palpitations.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.palpitations.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.irritability.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.irritability.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.irritability.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.constipation.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.constipation.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.constipation.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.swollenlegs.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.swollenlegs.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.swollenlegs.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.lkowerback.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.lkowerback.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.lkowerback.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.eyefatigue.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.eyefatigue.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.eyefatigue.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stiffness.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stiffness.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stiffness.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.numbnessarm.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.numbnessarm.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.numbnessarm.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.buttockpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.buttockpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.buttockpain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.b1ackpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.b1ackpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.b1ackpain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.numbnessin.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.numbnessin.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.numbnessin.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.abdominalpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.abdominalpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.abdominalpain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.diarrhea.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.diarrhea.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.diarrhea.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stiffneck.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stiffneck.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stiffneck.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.sensitivityto.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.sensitivityto.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.sensitivityto.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.meadache.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.meadache.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.meadache.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.shortnessof.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.shortnessof.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.shortnessof.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.dizziness.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.dizziness.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.dizziness.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.insomnia.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.insomnia.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.insomnia.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stomachpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stomachpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.stomachpain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.legpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.legpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.legpain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.arrhythmia.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.arrhythmia.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.arrhythmia.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.tinnitus.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.tinnitus.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.tinnitus.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.kneepain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.kneepain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.kneepain.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.hotFlashes.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.hotFlashes.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.hotFlashes.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.hayfever.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.hayfever.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.hayfever.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.f1requenturination.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.f1requenturination.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.f1requenturination.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.malaise.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.malaise.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.malaise.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.vertigo.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.vertigo.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.vertigo.most
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.armpain.concerning
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.armpain.painful
+            data_type: BOOLEAN
+          - name: json_agg.most_severe_symptom.armpain.most
+            data_type: BOOLEAN
+          - name: json_agg.user_id
+            data_type: STRING
       - name: users
         columns:
-          - name: user_id
-            data_type: UUID
-          - name: user_name
-            data_type: VARCHAR
-          - name: kana
-            data_type: VARCHAR
-          - name: gender
-            data_type: VARCHAR
-          - name: age
-            data_type: BIGINT
-          - name: birthday
-            data_type: VARCHAR
-          - name: postal_code
-            data_type: VARCHAR
-          - name: address
-            data_type: VARCHAR
-          - name: phone_number
-            data_type: VARCHAR
-          - name: email
-            data_type: VARCHAR
-          - name: first_treatment_date
-            data_type: DATE
-          - name: acquisition_channel
-            data_type: VARCHAR
-          - name: occupation
-            data_type: VARCHAR
-          - name: family
-            data_type: VARCHAR
-          - name: memo
-            data_type: VARCHAR
-          - name: created_at
-            data_type: VARCHAR
-          - name: updated_at
-            data_type: VARCHAR
-          - name: visibletochildadmin
+          - name: json_agg
+            data_type: >-
+              ARRAY<STRUCT<`visibletochildadmin` BOOLEAN, `updated_at` TIMESTAMP, `created_at` TIMESTAMP,
+              `line_id` STRING, `family` STRING, `acquisition_channel` STRING, `email` STRING, `phone_number`
+              STRING, `first_treatment_date` DATE, `occupation` STRING, `address` STRING, `postal_code`
+              STRING, `birthday` STRING, `memo` STRING, `user_id` STRING, `age` INT64, `gender` STRING,
+              `kana` STRING, `user_name` STRING>>
+          - name: json_agg.visibletochildadmin
             data_type: BOOLEAN
+          - name: json_agg.updated_at
+            data_type: TIMESTAMP
+          - name: json_agg.created_at
+            data_type: TIMESTAMP
+          - name: json_agg.line_id
+            data_type: STRING
+          - name: json_agg.family
+            data_type: STRING
+          - name: json_agg.acquisition_channel
+            data_type: STRING
+          - name: json_agg.email
+            data_type: STRING
+          - name: json_agg.phone_number
+            data_type: STRING
+          - name: json_agg.first_treatment_date
+            data_type: DATE
+          - name: json_agg.occupation
+            data_type: STRING
+          - name: json_agg.address
+            data_type: STRING
+          - name: json_agg.postal_code
+            data_type: STRING
+          - name: json_agg.birthday
+            data_type: STRING
+          - name: json_agg.memo
+            data_type: STRING
+          - name: json_agg.user_id
+            data_type: STRING
+          - name: json_agg.age
+            data_type: INT64
+          - name: json_agg.gender
+            data_type: STRING
+          - name: json_agg.kana
+            data_type: STRING
+          - name: json_agg.user_name
+            data_type: STRING

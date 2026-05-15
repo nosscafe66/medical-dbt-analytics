@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: int_medical_diagnoses_summary
+    columns:
+      - name: user_id
+        data_type: STRING
+      - name: questionnaireid
+        data_type: STRING
+      - name: diagnosed_at
+        data_type: TIMESTAMP
+      - name: gender
+        data_type: STRING
+      - name: age
+        data_type: INT64
+      - name: age_group
+        data_type: STRING
+      - name: occupation
+        data_type: STRING
+      - name: visit_type
+        data_type: STRING
+      - name: visit_number
+        data_type: INT64
+      - name: has_neck_shoulder_pain
+        data_type: BOOLEAN
+      - name: has_mental_fatigue
+        data_type: BOOLEAN
+      - name: physical_pain_severity_score
+        data_type: INT64
+      - name: marks_json
+        data_type: STRING
+      - name: chakura_marks_json
+        data_type: STRING

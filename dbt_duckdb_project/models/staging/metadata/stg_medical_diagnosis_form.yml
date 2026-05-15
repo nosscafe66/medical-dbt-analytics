@@ -3,108 +3,496 @@ models:
   - name: stg_medical_diagnosis_form
     columns:
       - name: user_id
-        data_type: UUID
+        data_type: STRING
       - name: referrer
-        data_type: VARCHAR
-      - name: most_severe_symptom
-        data_type: >-
-          STRUCT(armpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), legpain STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), malaise STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), vertigo STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), diarrhea
-          STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), hayfever STRUCT(most BOOLEAN, painful
-          BOOLEAN, concerning BOOLEAN), insomnia STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          kneepain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), meadache STRUCT(most BOOLEAN,
-          painful BOOLEAN, concerning BOOLEAN), tinnitus STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-          BOOLEAN), b1ackpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), dizziness STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stiffneck STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), stiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), arrhythmia
-          STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), eyefatigue STRUCT(most BOOLEAN, painful
-          BOOLEAN, concerning BOOLEAN), hotFlashes STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          lkowerback STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), numbnessin STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), buttockpain STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), numbnessarm STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          shortnessof STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stomachpain STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), swollenlegs STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), constipation STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          irritability STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), palpitations STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), abdominalpain STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), backstiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          menstrualpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), sensitivityto STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), nasalcongestion STRUCT(most BOOLEAN, painful
-          BOOLEAN, concerning BOOLEAN), f1requenturination STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-          BOOLEAN), menstrualirregularity STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN))
-      - name: additionalinfo
-        data_type: >-
-          STRUCT(smoking VARCHAR, appetite VARCHAR, drinking VARCHAR, systolicBP VARCHAR, diastolicBP
-          VARCHAR, averageSleep VARCHAR, pregnancyWeek VARCHAR, smokingAmount VARCHAR, pregnancyStatus
-          VARCHAR)
+        data_type: STRING
       - name: questionnaireid
-        data_type: UUID
-      - name: activitiesdata
-        data_type: >-
-          STRUCT(nursing BOOLEAN, parenting BOOLEAN, caregiving BOOLEAN, doingSports BOOLEAN, sittingWork
-          BOOLEAN, standingWork BOOLEAN, frequentDriving BOOLEAN, frequentComputerUse BOOLEAN, liftingHeavyObjects
-          BOOLEAN, readingBooksNewspapers BOOLEAN)
-      - name: pastmedicalhistory
-        data_type: >-
-          STRUCT(lastName VARCHAR, bodyMarks VARCHAR, firstName VARCHAR, dateOfBirth VARCHAR, medicalIssues
-          VARCHAR, patientNumber VARCHAR, hasOtherConcerns VARCHAR, hasPastCondition VARCHAR, otherConcernsDetails
-          VARCHAR, pastConditionDetails VARCHAR)
-      - name: diagnosesdata
-        data_type: JSON
-      - name: symptomsdata
-        data_type: >-
-          STRUCT(armpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), legpain STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), malaise STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), vertigo STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), diarrhea
-          STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), hayfever STRUCT(most BOOLEAN, painful
-          BOOLEAN, concerning BOOLEAN), insomnia STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          kneepain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), meadache STRUCT(most BOOLEAN,
-          painful BOOLEAN, concerning BOOLEAN), tinnitus STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-          BOOLEAN), b1ackpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), dizziness STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stiffneck STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), stiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), arrhythmia
-          STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), eyefatigue STRUCT(most BOOLEAN, painful
-          BOOLEAN, concerning BOOLEAN), hotFlashes STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          lkowerback STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), numbnessin STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), buttockpain STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), numbnessarm STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          shortnessof STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), stomachpain STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), swollenlegs STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), constipation STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          irritability STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), palpitations STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), abdominalpain STRUCT(most BOOLEAN, painful BOOLEAN,
-          concerning BOOLEAN), backstiffness STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN),
-          menstrualpain STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN), sensitivityto STRUCT(most
-          BOOLEAN, painful BOOLEAN, concerning BOOLEAN), nasalcongestion STRUCT(most BOOLEAN, painful
-          BOOLEAN, concerning BOOLEAN), f1requenturination STRUCT(most BOOLEAN, painful BOOLEAN, concerning
-          BOOLEAN), menstrualirregularity STRUCT(most BOOLEAN, painful BOOLEAN, concerning BOOLEAN))
-      - name: marks
-        data_type: JSON
-      - name: marked_image_name
-        data_type: VARCHAR
-      - name: created_at
-        data_type: VARCHAR
-      - name: updated_at
-        data_type: VARCHAR
-      - name: marked_image_path
-        data_type: JSON
-      - name: chakura_marks
-        data_type: STRUCT(x DOUBLE, y DOUBLE)[]
-      - name: mainComplaint
-        data_type: VARCHAR
-      - name: mentalComplaints
-        data_type: VARCHAR
-      - name: treatment_memo
-        data_type: VARCHAR
-      - name: repliconVaccine
-        data_type: VARCHAR
-      - name: fortunemessage_memo
-        data_type: VARCHAR
-      - name: chakraerror_memo
-        data_type: VARCHAR
-      - name: rooterror_memo
-        data_type: VARCHAR
+        data_type: STRING
       - name: patientNumber
-        data_type: BIGINT
-  - name: users
+        data_type: INT64
+      - name: mainComplaint
+        data_type: STRING
+      - name: mentalComplaints
+        data_type: STRING
+      - name: treatment_memo
+        data_type: STRING
+      - name: repliconVaccine
+        data_type: BOOLEAN
+      - name: fortunemessage_memo
+        data_type: STRING
+      - name: chakraerror_memo
+        data_type: STRING
+      - name: rooterror_memo
+        data_type: STRING
+      - name: marked_image_name
+        data_type: STRING
+      - name: created_at
+        data_type: TIMESTAMP
+      - name: updated_at
+        data_type: TIMESTAMP
+      - name: marked_image_path
+        data_type: STRING
+      - name: mss_armpain_most
+        data_type: BOOLEAN
+      - name: mss_armpain_painful
+        data_type: BOOLEAN
+      - name: mss_armpain_concerning
+        data_type: BOOLEAN
+      - name: mss_legpain_most
+        data_type: BOOLEAN
+      - name: mss_legpain_painful
+        data_type: BOOLEAN
+      - name: mss_legpain_concerning
+        data_type: BOOLEAN
+      - name: mss_malaise_most
+        data_type: BOOLEAN
+      - name: mss_malaise_painful
+        data_type: BOOLEAN
+      - name: mss_malaise_concerning
+        data_type: BOOLEAN
+      - name: mss_vertigo_most
+        data_type: BOOLEAN
+      - name: mss_vertigo_painful
+        data_type: BOOLEAN
+      - name: mss_vertigo_concerning
+        data_type: BOOLEAN
+      - name: mss_diarrhea_most
+        data_type: BOOLEAN
+      - name: mss_diarrhea_painful
+        data_type: BOOLEAN
+      - name: mss_diarrhea_concerning
+        data_type: BOOLEAN
+      - name: mss_hayfever_most
+        data_type: BOOLEAN
+      - name: mss_hayfever_painful
+        data_type: BOOLEAN
+      - name: mss_hayfever_concerning
+        data_type: BOOLEAN
+      - name: mss_insomnia_most
+        data_type: BOOLEAN
+      - name: mss_insomnia_painful
+        data_type: BOOLEAN
+      - name: mss_insomnia_concerning
+        data_type: BOOLEAN
+      - name: mss_kneepain_most
+        data_type: BOOLEAN
+      - name: mss_kneepain_painful
+        data_type: BOOLEAN
+      - name: mss_kneepain_concerning
+        data_type: BOOLEAN
+      - name: mss_meadache_most
+        data_type: BOOLEAN
+      - name: mss_meadache_painful
+        data_type: BOOLEAN
+      - name: mss_meadache_concerning
+        data_type: BOOLEAN
+      - name: mss_tinnitus_most
+        data_type: BOOLEAN
+      - name: mss_tinnitus_painful
+        data_type: BOOLEAN
+      - name: mss_tinnitus_concerning
+        data_type: BOOLEAN
+      - name: mss_b1ackpain_most
+        data_type: BOOLEAN
+      - name: mss_b1ackpain_painful
+        data_type: BOOLEAN
+      - name: mss_b1ackpain_concerning
+        data_type: BOOLEAN
+      - name: mss_dizziness_most
+        data_type: BOOLEAN
+      - name: mss_dizziness_painful
+        data_type: BOOLEAN
+      - name: mss_dizziness_concerning
+        data_type: BOOLEAN
+      - name: mss_stiffneck_most
+        data_type: BOOLEAN
+      - name: mss_stiffneck_painful
+        data_type: BOOLEAN
+      - name: mss_stiffneck_concerning
+        data_type: BOOLEAN
+      - name: mss_stiffness_most
+        data_type: BOOLEAN
+      - name: mss_stiffness_painful
+        data_type: BOOLEAN
+      - name: mss_stiffness_concerning
+        data_type: BOOLEAN
+      - name: mss_arrhythmia_most
+        data_type: BOOLEAN
+      - name: mss_arrhythmia_painful
+        data_type: BOOLEAN
+      - name: mss_arrhythmia_concerning
+        data_type: BOOLEAN
+      - name: mss_eyefatigue_most
+        data_type: BOOLEAN
+      - name: mss_eyefatigue_painful
+        data_type: BOOLEAN
+      - name: mss_eyefatigue_concerning
+        data_type: BOOLEAN
+      - name: mss_hotFlashes_most
+        data_type: BOOLEAN
+      - name: mss_hotFlashes_painful
+        data_type: BOOLEAN
+      - name: mss_hotFlashes_concerning
+        data_type: BOOLEAN
+      - name: mss_lkowerback_most
+        data_type: BOOLEAN
+      - name: mss_lkowerback_painful
+        data_type: BOOLEAN
+      - name: mss_lkowerback_concerning
+        data_type: BOOLEAN
+      - name: mss_numbnessin_most
+        data_type: BOOLEAN
+      - name: mss_numbnessin_painful
+        data_type: BOOLEAN
+      - name: mss_numbnessin_concerning
+        data_type: BOOLEAN
+      - name: mss_buttockpain_most
+        data_type: BOOLEAN
+      - name: mss_buttockpain_painful
+        data_type: BOOLEAN
+      - name: mss_buttockpain_concerning
+        data_type: BOOLEAN
+      - name: mss_numbnessarm_most
+        data_type: BOOLEAN
+      - name: mss_numbnessarm_painful
+        data_type: BOOLEAN
+      - name: mss_numbnessarm_concerning
+        data_type: BOOLEAN
+      - name: mss_shortnessof_most
+        data_type: BOOLEAN
+      - name: mss_shortnessof_painful
+        data_type: BOOLEAN
+      - name: mss_shortnessof_concerning
+        data_type: BOOLEAN
+      - name: mss_stomachpain_most
+        data_type: BOOLEAN
+      - name: mss_stomachpain_painful
+        data_type: BOOLEAN
+      - name: mss_stomachpain_concerning
+        data_type: BOOLEAN
+      - name: mss_swollenlegs_most
+        data_type: BOOLEAN
+      - name: mss_swollenlegs_painful
+        data_type: BOOLEAN
+      - name: mss_swollenlegs_concerning
+        data_type: BOOLEAN
+      - name: mss_constipation_most
+        data_type: BOOLEAN
+      - name: mss_constipation_painful
+        data_type: BOOLEAN
+      - name: mss_constipation_concerning
+        data_type: BOOLEAN
+      - name: mss_irritability_most
+        data_type: BOOLEAN
+      - name: mss_irritability_painful
+        data_type: BOOLEAN
+      - name: mss_irritability_concerning
+        data_type: BOOLEAN
+      - name: mss_palpitations_most
+        data_type: BOOLEAN
+      - name: mss_palpitations_painful
+        data_type: BOOLEAN
+      - name: mss_palpitations_concerning
+        data_type: BOOLEAN
+      - name: mss_abdominalpain_most
+        data_type: BOOLEAN
+      - name: mss_abdominalpain_painful
+        data_type: BOOLEAN
+      - name: mss_abdominalpain_concerning
+        data_type: BOOLEAN
+      - name: mss_backstiffness_most
+        data_type: BOOLEAN
+      - name: mss_backstiffness_painful
+        data_type: BOOLEAN
+      - name: mss_backstiffness_concerning
+        data_type: BOOLEAN
+      - name: mss_menstrualpain_most
+        data_type: BOOLEAN
+      - name: mss_menstrualpain_painful
+        data_type: BOOLEAN
+      - name: mss_menstrualpain_concerning
+        data_type: BOOLEAN
+      - name: mss_sensitivityto_most
+        data_type: BOOLEAN
+      - name: mss_sensitivityto_painful
+        data_type: BOOLEAN
+      - name: mss_sensitivityto_concerning
+        data_type: BOOLEAN
+      - name: mss_nasalcongestion_most
+        data_type: BOOLEAN
+      - name: mss_nasalcongestion_painful
+        data_type: BOOLEAN
+      - name: mss_nasalcongestion_concerning
+        data_type: BOOLEAN
+      - name: mss_f1requenturination_most
+        data_type: BOOLEAN
+      - name: mss_f1requenturination_painful
+        data_type: BOOLEAN
+      - name: mss_f1requenturination_concerning
+        data_type: BOOLEAN
+      - name: mss_menstrualirregularity_most
+        data_type: BOOLEAN
+      - name: mss_menstrualirregularity_painful
+        data_type: BOOLEAN
+      - name: mss_menstrualirregularity_concerning
+        data_type: BOOLEAN
+      - name: sd_armpain_most
+        data_type: BOOLEAN
+      - name: sd_armpain_painful
+        data_type: BOOLEAN
+      - name: sd_armpain_concerning
+        data_type: BOOLEAN
+      - name: sd_legpain_most
+        data_type: BOOLEAN
+      - name: sd_legpain_painful
+        data_type: BOOLEAN
+      - name: sd_legpain_concerning
+        data_type: BOOLEAN
+      - name: sd_malaise_most
+        data_type: BOOLEAN
+      - name: sd_malaise_painful
+        data_type: BOOLEAN
+      - name: sd_malaise_concerning
+        data_type: BOOLEAN
+      - name: sd_vertigo_most
+        data_type: BOOLEAN
+      - name: sd_vertigo_painful
+        data_type: BOOLEAN
+      - name: sd_vertigo_concerning
+        data_type: BOOLEAN
+      - name: sd_diarrhea_most
+        data_type: BOOLEAN
+      - name: sd_diarrhea_painful
+        data_type: BOOLEAN
+      - name: sd_diarrhea_concerning
+        data_type: BOOLEAN
+      - name: sd_hayfever_most
+        data_type: BOOLEAN
+      - name: sd_hayfever_painful
+        data_type: BOOLEAN
+      - name: sd_hayfever_concerning
+        data_type: BOOLEAN
+      - name: sd_insomnia_most
+        data_type: BOOLEAN
+      - name: sd_insomnia_painful
+        data_type: BOOLEAN
+      - name: sd_insomnia_concerning
+        data_type: BOOLEAN
+      - name: sd_kneepain_most
+        data_type: BOOLEAN
+      - name: sd_kneepain_painful
+        data_type: BOOLEAN
+      - name: sd_kneepain_concerning
+        data_type: BOOLEAN
+      - name: sd_meadache_most
+        data_type: BOOLEAN
+      - name: sd_meadache_painful
+        data_type: BOOLEAN
+      - name: sd_meadache_concerning
+        data_type: BOOLEAN
+      - name: sd_tinnitus_most
+        data_type: BOOLEAN
+      - name: sd_tinnitus_painful
+        data_type: BOOLEAN
+      - name: sd_tinnitus_concerning
+        data_type: BOOLEAN
+      - name: sd_b1ackpain_most
+        data_type: BOOLEAN
+      - name: sd_b1ackpain_painful
+        data_type: BOOLEAN
+      - name: sd_b1ackpain_concerning
+        data_type: BOOLEAN
+      - name: sd_dizziness_most
+        data_type: BOOLEAN
+      - name: sd_dizziness_painful
+        data_type: BOOLEAN
+      - name: sd_dizziness_concerning
+        data_type: BOOLEAN
+      - name: sd_stiffneck_most
+        data_type: BOOLEAN
+      - name: sd_stiffneck_painful
+        data_type: BOOLEAN
+      - name: sd_stiffneck_concerning
+        data_type: BOOLEAN
+      - name: sd_stiffness_most
+        data_type: BOOLEAN
+      - name: sd_stiffness_painful
+        data_type: BOOLEAN
+      - name: sd_stiffness_concerning
+        data_type: BOOLEAN
+      - name: sd_arrhythmia_most
+        data_type: BOOLEAN
+      - name: sd_arrhythmia_painful
+        data_type: BOOLEAN
+      - name: sd_arrhythmia_concerning
+        data_type: BOOLEAN
+      - name: sd_eyefatigue_most
+        data_type: BOOLEAN
+      - name: sd_eyefatigue_painful
+        data_type: BOOLEAN
+      - name: sd_eyefatigue_concerning
+        data_type: BOOLEAN
+      - name: sd_hotFlashes_most
+        data_type: BOOLEAN
+      - name: sd_hotFlashes_painful
+        data_type: BOOLEAN
+      - name: sd_hotFlashes_concerning
+        data_type: BOOLEAN
+      - name: sd_lkowerback_most
+        data_type: BOOLEAN
+      - name: sd_lkowerback_painful
+        data_type: BOOLEAN
+      - name: sd_lkowerback_concerning
+        data_type: BOOLEAN
+      - name: sd_numbnessin_most
+        data_type: BOOLEAN
+      - name: sd_numbnessin_painful
+        data_type: BOOLEAN
+      - name: sd_numbnessin_concerning
+        data_type: BOOLEAN
+      - name: sd_buttockpain_most
+        data_type: BOOLEAN
+      - name: sd_buttockpain_painful
+        data_type: BOOLEAN
+      - name: sd_buttockpain_concerning
+        data_type: BOOLEAN
+      - name: sd_numbnessarm_most
+        data_type: BOOLEAN
+      - name: sd_numbnessarm_painful
+        data_type: BOOLEAN
+      - name: sd_numbnessarm_concerning
+        data_type: BOOLEAN
+      - name: sd_shortnessof_most
+        data_type: BOOLEAN
+      - name: sd_shortnessof_painful
+        data_type: BOOLEAN
+      - name: sd_shortnessof_concerning
+        data_type: BOOLEAN
+      - name: sd_stomachpain_most
+        data_type: BOOLEAN
+      - name: sd_stomachpain_painful
+        data_type: BOOLEAN
+      - name: sd_stomachpain_concerning
+        data_type: BOOLEAN
+      - name: sd_swollenlegs_most
+        data_type: BOOLEAN
+      - name: sd_swollenlegs_painful
+        data_type: BOOLEAN
+      - name: sd_swollenlegs_concerning
+        data_type: BOOLEAN
+      - name: sd_constipation_most
+        data_type: BOOLEAN
+      - name: sd_constipation_painful
+        data_type: BOOLEAN
+      - name: sd_constipation_concerning
+        data_type: BOOLEAN
+      - name: sd_irritability_most
+        data_type: BOOLEAN
+      - name: sd_irritability_painful
+        data_type: BOOLEAN
+      - name: sd_irritability_concerning
+        data_type: BOOLEAN
+      - name: sd_palpitations_most
+        data_type: BOOLEAN
+      - name: sd_palpitations_painful
+        data_type: BOOLEAN
+      - name: sd_palpitations_concerning
+        data_type: BOOLEAN
+      - name: sd_abdominalpain_most
+        data_type: BOOLEAN
+      - name: sd_abdominalpain_painful
+        data_type: BOOLEAN
+      - name: sd_abdominalpain_concerning
+        data_type: BOOLEAN
+      - name: sd_backstiffness_most
+        data_type: BOOLEAN
+      - name: sd_backstiffness_painful
+        data_type: BOOLEAN
+      - name: sd_backstiffness_concerning
+        data_type: BOOLEAN
+      - name: sd_menstrualpain_most
+        data_type: BOOLEAN
+      - name: sd_menstrualpain_painful
+        data_type: BOOLEAN
+      - name: sd_menstrualpain_concerning
+        data_type: BOOLEAN
+      - name: sd_sensitivityto_most
+        data_type: BOOLEAN
+      - name: sd_sensitivityto_painful
+        data_type: BOOLEAN
+      - name: sd_sensitivityto_concerning
+        data_type: BOOLEAN
+      - name: sd_nasalcongestion_most
+        data_type: BOOLEAN
+      - name: sd_nasalcongestion_painful
+        data_type: BOOLEAN
+      - name: sd_nasalcongestion_concerning
+        data_type: BOOLEAN
+      - name: sd_f1requenturination_most
+        data_type: BOOLEAN
+      - name: sd_f1requenturination_painful
+        data_type: BOOLEAN
+      - name: sd_f1requenturination_concerning
+        data_type: BOOLEAN
+      - name: sd_menstrualirregularity_most
+        data_type: BOOLEAN
+      - name: sd_menstrualirregularity_painful
+        data_type: BOOLEAN
+      - name: sd_menstrualirregularity_concerning
+        data_type: BOOLEAN
+      - name: smoking
+        data_type: STRING
+      - name: appetite
+        data_type: STRING
+      - name: drinking
+        data_type: STRING
+      - name: systolicBP
+        data_type: INT64
+      - name: diastolicBP
+        data_type: INT64
+      - name: averageSleep
+        data_type: FLOAT64
+      - name: pregnancyWeek
+        data_type: INT64
+      - name: smokingAmount
+        data_type: INT64
+      - name: pregnancyStatus
+        data_type: STRING
+      - name: nursing
+        data_type: BOOLEAN
+      - name: parenting
+        data_type: BOOLEAN
+      - name: caregiving
+        data_type: BOOLEAN
+      - name: doingSports
+        data_type: BOOLEAN
+      - name: sittingWork
+        data_type: BOOLEAN
+      - name: standingWork
+        data_type: BOOLEAN
+      - name: frequentDriving
+        data_type: BOOLEAN
+      - name: frequentComputerUse
+        data_type: BOOLEAN
+      - name: liftingHeavyObjects
+        data_type: BOOLEAN
+      - name: readingBooksNewspapers
+        data_type: BOOLEAN
+      - name: lastName
+        data_type: STRING
+      - name: firstName
+        data_type: STRING
+      - name: dateOfBirth
+        data_type: STRING
+      - name: medicalIssues
+        data_type: STRING
+      - name: hasOtherConcerns
+        data_type: BOOLEAN
+      - name: otherConcernsDetails
+        data_type: STRING
+      - name: diagnosesdata_json
+        data_type: STRING
+      - name: marks_json
+        data_type: STRING
+      - name: chakura_marks_json
+        data_type: STRING

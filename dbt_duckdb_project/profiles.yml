@@ -1,7 +1,13 @@
-dbt_duckdb_project:  # ← あなたの dbt プロジェクト名に合わせて変更
+kamuno_analytics:
   target: dev
   outputs:
     dev:
-      type: duckdb
-      path: ../duckdb.db         # DuckDBのファイルパス（相対 or 絶対パスOK）
-      threads: 1
+      type: bigquery
+      project: mylifedesign
+      schema: staging
+      method: oauth
+      threads: 4
+      location: us-central1
+      timeout_seconds: 300
+      priority: interactive
+      retries: 1
