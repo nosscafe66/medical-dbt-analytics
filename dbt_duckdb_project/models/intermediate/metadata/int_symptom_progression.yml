@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: int_symptom_progression
+    description: 初診時からの痛みスコアの変化を分析するモデル
+    columns:
+      - name: user_id
+        data_type: STRING
+      - name: questionnaireid
+        data_type: STRING
+      - name: diagnosed_at
+        data_type: TIMESTAMP
+      - name: visit_number_derived
+        data_type: INT64
+        description: 1=初診, 2回目以降...
+      - name: current_score
+        data_type: INT64
+        description: 今回の痛みスコア合計
+        config:
+          meta:
+            metrics:
+              avg_current_score:
+                type: average
+                label: 平均痛みスコア
+                description: 来院回数ごとの平均的な痛みです。
+      - name: initial_score
+        data_type: INT64
+        description: そのユーザーが初診時に出したスコア
+      - name: score_improvement
+        data_type: INT64
+        description: 今回のスコア - 初診スコア。マイナスが大きいほど改善。
+        config:
+          meta:
+            metrics:
+              avg_improvement:
+                type: average
+                label: 平均改善幅
+                description: 初診時からどれだけ痛みが減ったかの平均です。

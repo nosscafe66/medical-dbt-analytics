@@ -1,96 +1,84 @@
 version: 2
-
 models:
   - name: fct_diagnosis_events
-    description: "受診ごとのファクトデータ。トレンド分析や症状の集計に使用します。"
+    description: 受診ごとのファクトデータ。トレンド分析や症状の集計に使用します。
     columns:
       - name: questionnaireid
         data_type: STRING
-        description: "問診票のユニークID"
-        meta:
-          metrics:
-            total_visits:
-              type: count
-              sql: "${TABLE}.questionnaireid"
-              label: "総受診数"
-              description: "問診票の合計数（延べ受診数）です。"
-
+        description: 問診票のユニークID
+        config:
+          meta:
+            metrics:
+              total_visits:
+                type: count
+                sql: ${TABLE}.questionnaireid
+                label: 総受診数
+                description: 問診票の合計数（延べ受診数）です。
       - name: user_id
         data_type: STRING
-        description: "患者のユニークID"
-        meta:
-          metrics:
-            unique_patients:
-              type: count_distinct
-              sql: "${TABLE}.user_id"
-              label: "ユニーク患者数"
-              description: "受診した実人数です。"
-
+        description: 患者のユニークID
+        config:
+          meta:
+            metrics:
+              unique_patients:
+                type: count_distinct
+                sql: ${TABLE}.user_id
+                label: ユニーク患者数
+                description: 受診した実人数です。
       - name: diagnosed_at
         data_type: TIMESTAMP
-      
       - name: diagnosed_date
         data_type: DATE
-      
       - name: diagnosed_year
         data_type: INT64
-      
       - name: diagnosed_month
         data_type: INT64
-      
       - name: diagnosed_day_of_week
         data_type: INT64
-
       - name: gender
         data_type: STRING
-      
       - name: age_group
         data_type: STRING
-      
       - name: occupation
         data_type: STRING
-      
       - name: visit_type
         data_type: STRING
-      
       - name: visit_number
         data_type: INT64
-
       - name: has_neck_shoulder_pain
         data_type: BOOLEAN
-        meta:
-          metrics:
-            neck_shoulder_pain_count:
-              type: count_distinct
-              sql: "CASE WHEN ${TABLE}.has_neck_shoulder_pain THEN ${TABLE}.questionnaireid ELSE NULL END"
-              label: "首・肩の悩み件数"
-
+        config:
+          meta:
+            metrics:
+              neck_shoulder_pain_count:
+                type: count_distinct
+                sql: CASE WHEN ${TABLE}.has_neck_shoulder_pain THEN ${TABLE}.questionnaireid ELSE 
+                  NULL END
+                label: 首・肩の悩み件数
       - name: has_mental_fatigue
         data_type: BOOLEAN
-        meta:
-          metrics:
-            mental_fatigue_count:
-              type: count_distinct
-              sql: "CASE WHEN ${TABLE}.has_mental_fatigue THEN ${TABLE}.questionnaireid ELSE NULL END"
-              label: "精神的疲労の件数"
-
+        config:
+          meta:
+            metrics:
+              mental_fatigue_count:
+                type: count_distinct
+                sql: CASE WHEN ${TABLE}.has_mental_fatigue THEN ${TABLE}.questionnaireid ELSE NULL 
+                  END
+                label: 精神的疲労の件数
       - name: physical_pain_severity_score
         data_type: INT64
-        meta:
-          metrics:
-            avg_pain_severity:
-              type: average
-              sql: "${TABLE}.physical_pain_severity_score"
-              label: "平均痛みスコア"
-
+        config:
+          meta:
+            metrics:
+              avg_pain_severity:
+                type: average
+                sql: ${TABLE}.physical_pain_severity_score
+                label: 平均痛みスコア
       - name: mainComplaint
         data_type: STRING
-      
       - name: treatment_memo
         data_type: STRING
-      
       - name: marks_json
         data_type: STRING
-      
       - name: chakura_marks_json
         data_type: STRING
