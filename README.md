@@ -1,4 +1,4 @@
-# my-duckdb-analytics
+# medical-dbt-analytics
 
 問診票アプリのデータを題材に、DuckDB・dbt・Lightdash を用いて構築した分析基盤プロジェクトです。
 
@@ -168,8 +168,8 @@ Compiled 9 explores, SUCCESS=9 ERRORS=0
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/nosscafe66/my-duckdb-analytics.git
-cd my-duckdb-analytics
+git clone https://github.com/nosscafe66/medical-dbt-analytics.git
+cd medical-dbt-analytics
 ```
 
 ### 2. Install dependencies
