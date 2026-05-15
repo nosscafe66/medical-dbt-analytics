@@ -31,7 +31,7 @@
 ## Project Structure
 
 ```text
-dbt_duckdb_project/
+medical-dbt-analytics/
 ├── analyses/
 ├── logs/
 ├── macros/
