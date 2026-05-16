@@ -1,0 +1,51 @@
+version: 2
+models:
+  - name: fct_symptom_surveys
+    columns:
+      - name: survey_id
+        data_type: STRING
+      - name: user_id
+        description: 患者のユニークID
+        data_type: STRING
+        config:
+          meta:
+            metrics:
+              unique_patients:
+                type: count_distinct
+                sql: ${TABLE}.user_id
+                label: ユニーク患者数
+                description: 受診した実人数です。
+      - name: questionnaire_id
+        data_type: STRING
+      - name: pain_level
+        data_type: INT64
+      - name: mental_state
+        data_type: INT64
+      - name: overall_satisfaction
+        data_type: INT64
+      - name: energy_level
+        data_type: INT64
+      - name: sleep_quality
+        data_type: INT64
+      - name: mobility_level
+        data_type: INT64
+      - name: next_treatment_needed
+        data_type: BOOLEAN
+      - name: additional_concerns
+        data_type: STRING
+      - name: survey_date
+        data_type: DATE
+      - name: created_at
+        data_type: TIMESTAMP
+      - name: updated_at
+        data_type: TIMESTAMP
+      - name: survey_number
+        data_type: INT64
+      - name: days_since_first_survey
+        data_type: INT64
+      - name: gender
+        data_type: STRING
+      - name: age_group
+        data_type: STRING
+      - name: occupation
+        data_type: STRING

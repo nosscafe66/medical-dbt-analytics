@@ -14,10 +14,11 @@ models:
         data_type: INT64
       - name: days_since_last_visit
         data_type: INT64
-        meta:
-          metrics:
-            avg_days_between_visits:
-              type: average
-              label: "平均来院間隔（日）"
+        config:
+          meta:
+            metrics:
+              avg_days_between_visits:
+                type: average
+                label: 平均来院間隔（日）
       - name: visit_type
         data_type: STRING

@@ -43,6 +43,22 @@ models:
         data_type: STRING
       - name: visit_type
         data_type: STRING
+        description: First Visit（新規）か Follow-up（再診）かの区分
+        config:
+          meta:
+            metrics:
+              return_visit_count:
+                type: count
+                label: 再診数
+                filters:
+                  - visit_type: Follow-up
+                description: 2回目以降の来院（リピーター）の延べ件数です。
+              retention_rate:
+                type: number
+                label: リピート率
+                sql: SAFE_DIVIDE(${return_visit_count}, ${total_visits})
+                format: percent
+                description: 全受診数に対する再診の割合です。
       - name: visit_number
         data_type: INT64
       - name: has_neck_shoulder_pain

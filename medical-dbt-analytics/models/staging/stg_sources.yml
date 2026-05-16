@@ -636,3 +636,41 @@ sources:
             data_type: STRING
           - name: json_agg.user_name
             data_type: STRING
+      - name: symptom_improvement_surveys
+        columns:
+          - name: json_agg
+            data_type: >-
+              ARRAY<STRUCT<`next_treatment_needed` BOOLEAN, `additional_concerns` STRING, `updated_at`
+              TIMESTAMP, `pain_level` INT64, `mental_state` INT64, `overall_satisfaction` INT64, `energy_level`
+              INT64, `sleep_quality` INT64, `survey_date` DATE, `questionnaire_id` STRING, `mobility_level`
+              INT64, `user_id` STRING, `created_at` TIMESTAMP, `symptoms_improvement` STRING, `id` STRING>>
+          - name: json_agg.next_treatment_needed
+            data_type: BOOLEAN
+          - name: json_agg.additional_concerns
+            data_type: STRING
+          - name: json_agg.updated_at
+            data_type: TIMESTAMP
+          - name: json_agg.pain_level
+            data_type: INT64
+          - name: json_agg.mental_state
+            data_type: INT64
+          - name: json_agg.overall_satisfaction
+            data_type: INT64
+          - name: json_agg.energy_level
+            data_type: INT64
+          - name: json_agg.sleep_quality
+            data_type: INT64
+          - name: json_agg.survey_date
+            data_type: DATE
+          - name: json_agg.questionnaire_id
+            data_type: STRING
+          - name: json_agg.mobility_level
+            data_type: INT64
+          - name: json_agg.user_id
+            data_type: STRING
+          - name: json_agg.created_at
+            data_type: TIMESTAMP
+          - name: json_agg.symptoms_improvement
+            data_type: STRING
+          - name: json_agg.id
+            data_type: STRING

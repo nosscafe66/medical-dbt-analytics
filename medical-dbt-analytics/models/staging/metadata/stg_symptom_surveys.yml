@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: stg_symptom_surveys
+    columns:
+      - name: survey_id
+        data_type: STRING
+      - name: user_id
+        data_type: STRING
+      - name: questionnaire_id
+        data_type: STRING
+      - name: pain_level
+        data_type: INT64
+      - name: mental_state
+        data_type: INT64
+      - name: overall_satisfaction
+        data_type: INT64
+      - name: energy_level
+        data_type: INT64
+      - name: sleep_quality
+        data_type: INT64
+      - name: mobility_level
+        data_type: INT64
+      - name: next_treatment_needed
+        data_type: BOOLEAN
+      - name: additional_concerns
+        data_type: STRING
+      - name: survey_date
+        data_type: DATE
+      - name: created_at
+        data_type: TIMESTAMP
+      - name: updated_at
+        data_type: TIMESTAMP
