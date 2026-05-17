@@ -1,0 +1,67 @@
+chartConfig:
+  config:
+    conditionalFormattings: []
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: fct_diagnosis_events_diagnosed_at_month
+            yRef:
+              field: fct_diagnosis_events_total_visits
+              pivotValues:
+                - field: fct_diagnosis_events_visit_type
+                  value: Follow-up
+          isFilteredOut: false
+          type: bar
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: fct_diagnosis_events_diagnosed_at_month
+            yRef:
+              field: fct_diagnosis_events_total_visits
+              pivotValues:
+                - field: fct_diagnosis_events_visit_type
+                  value: First Visit
+          isFilteredOut: false
+          type: bar
+          yAxisIndex: 0
+      showAxisTicks: false
+    layout:
+      xField: fct_diagnosis_events_diagnosed_at_month
+      yField:
+        - fct_diagnosis_events_total_visits
+  type: cartesian
+contentType: chart
+dashboardSlug: retention-rate
+description: 月ごとの問診票提出件数を、初診と再診に分けて集計したグラフです。
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fct_diagnosis_events_visit_type
+    - fct_diagnosis_events_diagnosed_at_month
+  exploreName: fct_diagnosis_events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_total_visits
+  sorts:
+    - descending: true
+      fieldId: fct_diagnosis_events_diagnosed_at_month
+  tableCalculations: []
+name: "[月次] 受診推移（新規・再診別）"
+pivotConfig:
+  columns:
+    - fct_diagnosis_events_visit_type
+slug: yqdk0
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_visit_type
+    - fct_diagnosis_events_diagnosed_at_month
+    - fct_diagnosis_events_total_visits
+tableName: fct_diagnosis_events
+verification: null
+version: 1

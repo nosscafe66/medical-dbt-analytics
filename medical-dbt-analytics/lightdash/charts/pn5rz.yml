@@ -1,0 +1,101 @@
+chartConfig:
+  config:
+    conditionalFormattings: []
+    eChartsConfig:
+      legend:
+        orient: horizontal
+        type: scroll
+      series:
+        - encode:
+            xRef:
+              field: fct_symptom_surveys_days_since_first_survey
+            yRef:
+              field: fct_symptom_surveys_sleep_quality__
+          isFilteredOut: false
+          label:
+            show: false
+          type: line
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: fct_symptom_surveys_days_since_first_survey
+            yRef:
+              field: fct_symptom_surveys_pain_level__
+          isFilteredOut: false
+          label:
+            show: false
+          type: line
+          yAxisIndex: 1
+      showAxisTicks: false
+      yAxis:
+        - name: 睡眠の質の平均値
+        - name: 痛みレベルの平均値
+    layout:
+      flipAxes: false
+      showGridX: false
+      showGridY: true
+      stack: none
+      xField: fct_symptom_surveys_days_since_first_survey
+      yField:
+        - fct_symptom_surveys_sleep_quality__
+        - fct_symptom_surveys_pain_level__
+  type: cartesian
+contentType: chart
+dashboardSlug: retention-rate
+description: >-
+  初診日を0日目として、全患者の痛みレベルと睡眠の質の平均的な変化を可視化したもの。通院期間が長くなるにつれ、痛みの減少と睡眠の質向上が相関して改善しているかを確認し、治療プログラムの有効性を検証するために使用します。
+metricQuery:
+  additionalMetrics:
+    - baseDimensionName: sleep_quality
+      description: "Average of Sleep quality on the table Fct symptom surveys "
+      formatOptions:
+        separator: default
+        type: default
+      label: 睡眠の質の平均値
+      name: sleep_quality__
+      round: 2
+      sql: ${TABLE}.sleep_quality
+      table: fct_symptom_surveys
+      type: average
+      uuid: 78871922-75d7-4144-b09d-b0465ca2d341
+    - baseDimensionName: pain_level
+      description: "Average of Pain level on the table Fct symptom surveys "
+      formatOptions:
+        separator: default
+        type: default
+      label: 痛みレベルの平均値
+      name: pain_level__
+      round: 2
+      sql: ${TABLE}.pain_level
+      table: fct_symptom_surveys
+      type: average
+      uuid: 0bfb0d50-f649-4516-a56e-4e2c5ff05eae
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fct_symptom_surveys_days_since_first_survey
+  exploreName: fct_symptom_surveys
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_symptom_surveys_sleep_quality__
+    - fct_symptom_surveys_pain_level__
+  sorts:
+    - descending: false
+      fieldId: fct_symptom_surveys_days_since_first_survey
+  tableCalculations: []
+name: "[品質管理] 初診からの経過日数別 痛み・睡眠改善推移"
+pivotConfig:
+  columns:
+    - fct_symptom_surveys_sleep_quality
+slug: pn5rz
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_symptom_surveys_days_since_first_survey
+    - fct_symptom_surveys_sleep_quality__
+    - fct_symptom_surveys_pain_level__
+tableName: fct_symptom_surveys
+verification: null
+version: 1

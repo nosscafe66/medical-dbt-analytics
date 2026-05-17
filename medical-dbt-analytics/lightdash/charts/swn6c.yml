@@ -1,0 +1,72 @@
+chartConfig:
+  config:
+    conditionalFormattings: []
+    eChartsConfig:
+      legend:
+        orient: horizontal
+        type: scroll
+      series:
+        - encode:
+            xRef:
+              field: fct_diagnosis_events_occupation
+            yRef:
+              field: fct_diagnosis_events_neck_shoulder_pain_count
+          isFilteredOut: false
+          type: bar
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: fct_diagnosis_events_occupation
+            yRef:
+              field: fct_diagnosis_events_mental_fatigue_count
+          isFilteredOut: false
+          type: bar
+          yAxisIndex: 1
+      showAxisTicks: false
+      xAxis:
+        - enableDataZoom: true
+          inverse: true
+          name: Occupation
+          sortType: default
+      yAxis:
+        - name: 首・肩の悩み件数
+        - name: 精神疲労の件数
+    layout:
+      flipAxes: false
+      stack: none
+      xField: fct_diagnosis_events_occupation
+      yField:
+        - fct_diagnosis_events_neck_shoulder_pain_count
+        - fct_diagnosis_events_mental_fatigue_count
+  type: cartesian
+contentType: chart
+dashboardSlug: retention-rate
+description: ""
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fct_diagnosis_events_occupation
+  exploreName: fct_diagnosis_events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_neck_shoulder_pain_count
+    - fct_diagnosis_events_mental_fatigue_count
+  sorts:
+    - descending: false
+      fieldId: fct_diagnosis_events_occupation
+  tableCalculations: []
+name: "[属性分析] 職業別の悩み傾向"
+slug: swn6c
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_occupation
+    - fct_diagnosis_events_neck_shoulder_pain_count
+    - fct_diagnosis_events_mental_fatigue_count
+tableName: fct_diagnosis_events
+verification: null
+version: 1

@@ -1,0 +1,38 @@
+chartConfig:
+  config:
+    comparisonFormat: raw
+    conditionalFormattings: []
+    flipColors: false
+    label: 累計受診数
+    selectedField: fct_diagnosis_events_total_visits
+    showBigNumberLabel: true
+    showComparison: false
+    showTableNamesInLabel: false
+  type: big_number
+contentType: chart
+dashboardSlug: retention-rate
+description: 実際に施術を受けられたトータルの回数
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions: []
+  exploreName: fct_diagnosis_events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_total_visits
+  sorts:
+    - descending: true
+      fieldId: fct_diagnosis_events_total_visits
+  tableCalculations: []
+name: 累計受診数
+slug: g0s45
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_total_visits
+tableName: fct_diagnosis_events
+verification: null
+version: 1

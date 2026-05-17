@@ -1,0 +1,52 @@
+chartConfig:
+  config:
+    conditionalFormattings: []
+    eChartsConfig:
+      series:
+        - areaStyle: {}
+          encode:
+            xRef:
+              field: int_patient_visit_cycles_diagnosed_at_month
+            yRef:
+              field: int_patient_visit_cycles_avg_days_between_visits
+          isFilteredOut: false
+          stack: stack-all-series
+          type: line
+          yAxisIndex: 0
+      showAxisTicks: false
+    layout:
+      flipAxes: false
+      stack: stack
+      xField: int_patient_visit_cycles_diagnosed_at_month
+      yField:
+        - int_patient_visit_cycles_avg_days_between_visits
+  type: cartesian
+contentType: chart
+dashboardSlug: retention-rate
+description: ""
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - int_patient_visit_cycles_diagnosed_at_month
+  exploreName: int_patient_visit_cycles
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - int_patient_visit_cycles_avg_days_between_visits
+  sorts:
+    - descending: true
+      fieldId: int_patient_visit_cycles_diagnosed_at_month
+  tableCalculations: []
+name: 【リピート健全性】月別・平均来院間隔の推移
+slug: opabi
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - int_patient_visit_cycles_diagnosed_at_month
+    - int_patient_visit_cycles_avg_days_between_visits
+tableName: int_patient_visit_cycles
+verification: null
+version: 1

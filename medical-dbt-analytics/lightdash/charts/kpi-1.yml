@@ -1,0 +1,38 @@
+chartConfig:
+  config:
+    comparisonFormat: raw
+    conditionalFormattings: []
+    flipColors: false
+    label: 首・肩の悩み件数
+    selectedField: fct_diagnosis_events_neck_shoulder_pain_count
+    showBigNumberLabel: true
+    showComparison: false
+    showTableNamesInLabel: false
+  type: big_number
+contentType: chart
+dashboardSlug: retention-rate
+description: 首と肩に対しての悩み件数
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions: []
+  exploreName: fct_diagnosis_events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_neck_shoulder_pain_count
+  sorts:
+    - descending: true
+      fieldId: fct_diagnosis_events_neck_shoulder_pain_count
+  tableCalculations: []
+name: "KPI: 首・肩の悩み件数"
+slug: kpi-1
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_neck_shoulder_pain_count
+tableName: fct_diagnosis_events
+verification: null
+version: 1

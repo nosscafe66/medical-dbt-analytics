@@ -1,0 +1,126 @@
+config:
+  isAddFilterDisabled: false
+  isDateZoomDisabled: false
+  pinnedParameters: []
+contentType: dashboard
+description: 問診票アプリのデータ利活用ダッシュボード
+filters:
+  dimensions: []
+  metrics: []
+  tableCalculations: []
+name: 問診票アプリのデータ利活用ダッシュボード
+parameters: {}
+slug: retention-rate
+spaceSlug: shared
+tabs: []
+tiles:
+  - h: 5
+    properties:
+      chartName: 累計受診数
+      chartSlug: g0s45
+      hideTitle: true
+      title: ""
+    tabUuid: null
+    tileSlug: g0s45
+    type: saved_chart
+    w: 7
+    x: 0
+    "y": 0
+  - h: 5
+    properties:
+      chartName: 全期間のリピート率
+      chartSlug: 5yy44
+      hideTitle: true
+      title: ""
+    tabUuid: null
+    tileSlug: 5yy44
+    type: saved_chart
+    w: 7
+    x: 7
+    "y": 0
+  - h: 5
+    properties:
+      chartName: Copy of 全期間のリピート率
+      chartSlug: copy-of-1778917385341
+      hideTitle: false
+      title: クオーターのリピート率
+    tabUuid: null
+    tileSlug: copy-of-1778917385341
+    type: saved_chart
+    w: 7
+    x: 14
+    "y": 0
+  - h: 5
+    properties:
+      chartName: "[属性分析] 職業別の悩み傾向"
+      chartSlug: swn6c
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: swn6c
+    type: saved_chart
+    w: 12
+    x: 21
+    "y": 0
+  - h: 6
+    properties:
+      chartName: 【リピート健全性】月別・平均来院間隔の推移
+      chartSlug: opabi
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: opabi
+    type: saved_chart
+    w: 9
+    x: 0
+    "y": 5
+  - h: 6
+    properties:
+      chartName: "[月次] 受診推移（新規・再診別）"
+      chartSlug: yqdk0
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: yqdk0
+    type: saved_chart
+    w: 12
+    x: 9
+    "y": 5
+  - h: 6
+    properties:
+      chartName: "[品質管理] 初診からの経過日数別 痛み・睡眠改善推移"
+      chartSlug: pn5rz
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: pn5rz
+    type: saved_chart
+    w: 12
+    x: 21
+    "y": 5
+  - h: 3
+    properties:
+      chartName: "KPI: 平均痛みスコア"
+      chartSlug: kpi
+      hideTitle: true
+      title: ""
+    tabUuid: null
+    tileSlug: kpi
+    type: saved_chart
+    w: 5
+    x: 0
+    "y": 11
+  - h: 3
+    properties:
+      chartName: "KPI: 首・肩の悩み件数"
+      chartSlug: kpi-1
+      hideTitle: true
+      title: ""
+    tabUuid: null
+    tileSlug: kpi-1
+    type: saved_chart
+    w: 5
+    x: 5
+    "y": 11
+verification: null
+version: 1

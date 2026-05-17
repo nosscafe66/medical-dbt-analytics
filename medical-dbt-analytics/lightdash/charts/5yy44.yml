@@ -1,0 +1,38 @@
+chartConfig:
+  config:
+    comparisonFormat: raw
+    conditionalFormattings: []
+    flipColors: false
+    label: リピート率(全期間)
+    selectedField: fct_diagnosis_events_retention_rate
+    showBigNumberLabel: true
+    showComparison: false
+    showTableNamesInLabel: false
+  type: big_number
+contentType: chart
+dashboardSlug: retention-rate
+description: 全期間のリピート率
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions: []
+  exploreName: fct_diagnosis_events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_retention_rate
+  sorts:
+    - descending: true
+      fieldId: fct_diagnosis_events_retention_rate
+  tableCalculations: []
+name: 全期間のリピート率
+slug: 5yy44
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_retention_rate
+tableName: fct_diagnosis_events
+verification: null
+version: 1

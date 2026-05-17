@@ -1,0 +1,38 @@
+chartConfig:
+  config:
+    comparisonFormat: raw
+    conditionalFormattings: []
+    flipColors: false
+    label: 平均痛みスコア
+    selectedField: fct_diagnosis_events_avg_pain_severity
+    showBigNumberLabel: true
+    showComparison: false
+    showTableNamesInLabel: false
+  type: big_number
+contentType: chart
+dashboardSlug: retention-rate
+description: 痛みのスコア
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions: []
+  exploreName: fct_diagnosis_events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_avg_pain_severity
+  sorts:
+    - descending: true
+      fieldId: fct_diagnosis_events_avg_pain_severity
+  tableCalculations: []
+name: "KPI: 平均痛みスコア"
+slug: kpi
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_avg_pain_severity
+tableName: fct_diagnosis_events
+verification: null
+version: 1

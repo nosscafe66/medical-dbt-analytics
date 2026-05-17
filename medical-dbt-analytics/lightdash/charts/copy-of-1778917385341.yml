@@ -1,0 +1,51 @@
+chartConfig:
+  config:
+    comparisonFormat: raw
+    conditionalFormattings: []
+    flipColors: false
+    label: リピート率(四半期)
+    selectedField: fct_diagnosis_events_retention_rate
+    showBigNumberLabel: true
+    showComparison: false
+    showTableNamesInLabel: false
+  type: big_number
+contentType: chart
+dashboardSlug: retention-rate
+description: 全期間のリピート率
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions: []
+  exploreName: fct_diagnosis_events
+  filters:
+    dimensions:
+      and:
+        - id: 00579073-bae2-47a9-9535-a32854081649
+          operator: inTheCurrent
+          required: false
+          settings:
+            completed: false
+            unitOfTime: quarters
+          target:
+            fieldId: fct_diagnosis_events_diagnosed_at
+          values:
+            - 1
+      id: a33ec69c-617d-48a2-97db-d1f76104cfdc
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fct_diagnosis_events_retention_rate
+  sorts:
+    - descending: true
+      fieldId: fct_diagnosis_events_retention_rate
+  tableCalculations: []
+name: Copy of 全期間のリピート率
+slug: copy-of-1778917385341
+spaceSlug: shared
+tableConfig:
+  columnOrder:
+    - fct_diagnosis_events_retention_rate
+tableName: fct_diagnosis_events
+verification: null
+version: 1
